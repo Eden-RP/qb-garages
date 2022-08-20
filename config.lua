@@ -1,5 +1,5 @@
 AutoRespawn = false --True == auto respawn cars that are outside into your garage on script restart, false == does not put them into your garage and players have to go to the impound
-SharedGarages = false   --True == Gang and job garages are shared, false == Gang and Job garages are personal
+SharedGarages = true   --True == Gang and job garages are shared, false == Gang and Job garages are personal
 VisuallyDamageCars = true --True == Visually damage cars that go out of the garage depending of body damage, false == Do not visually damage cars (damage is still applied to car values)
 
 Garages = {
@@ -173,7 +173,7 @@ Garages = {
         spawnPoint = vector4(407.92, -1646.29, 29.29, 226.39),
         showBlip = true,
         blipName = "Impound Lot",
-        blipNumber = 68,
+        blipNumber = 595,
         type = 'depot',                --public, job, gang, depot
         vehicle = 'car'                 --car, air, sea
     },
@@ -323,6 +323,61 @@ Garages = {
         blipNumber = 356,
         type = 'depot',                --public, job, gang, depot
         vehicle = 'sea'                 --car, air, sea
+    },
+    ["fantasticplaza"] = {
+        label = "Fantastic Plaza Parking",
+        takeVehicle = vector3(311.69, -1080.27, 29.4),
+        spawnPoint = vector4(307.22, -1080.69, 29.36, 111.81),
+        putVehicle = vector3(307.47, -1084.83, 29.34),
+        showBlip = false,
+        blipName = "Fantastic Plaza Parking",
+        blipNumber = 357,
+        type = 'public',                --public, job, gang, depot
+        vehicle = 'car',              --car, air, sea
+    },
+    ["southrockford"] = {
+        label = "South Rockford Parking",
+        takeVehicle = vector3(-680.82, -1110.55, 14.67),
+        spawnPoint = vector4(-683.11, -1112.63, 14.53, 32.24),
+        putVehicle = vector3(-684.3, -1105.49, 14.53),
+        showBlip = false,
+        blipName = "South Rockford Parking",
+        blipNumber = 357,
+        type = 'public',                --public, job, gang, depot
+        vehicle = 'car',              --car, air, sea
+    },
+    ["morningwood"] = {
+        label = "Morningwood Parking",
+        takeVehicle = vector3(-1300.16, -410.57, 35.76),
+        spawnPoint = vector4(-1309.21, -410.63, 34.49, 296.99),
+        putVehicle = vector3(-1295.53, -412.1, 35.57),
+        showBlip = false,
+        blipName = "Morningwood Parking",
+        blipNumber = 357,
+        type = 'public',                --public, job, gang, depot
+        vehicle = 'car',              --car, air, sea
+    },
+    ["tinseltowers"] = {
+        label = "Tinsel Towers Parking",
+        takeVehicle = vector3(-529.6, 60.88, 52.58),
+        spawnPoint = vector4(-535.04, 57.94, 52.26, 266.09),
+        putVehicle = vector3(-528.73, 49.42, 52.58),
+        showBlip = false,
+        blipName = "Tinsel Towers Parking",
+        blipNumber = 357,
+        type = 'public',                --public, job, gang, depot
+        vehicle = 'car',              --car, air, sea
+    },
+    ["bayview"] = {
+        label = "Bayview Lodge Parking",
+        takeVehicle = vector3(-691.42, 5781.12, 17.33),
+        spawnPoint = vector4(-684.2, 5784.14, 17.33, 154.53),
+        putVehicle = vector3(-676.17, 5776.13, 17.33),
+        showBlip = false,
+        blipName = "Bayview Lodge Parking",
+        blipNumber = 357,
+        type = 'public',                --public, job, gang, depot
+        vehicle = 'car',              --car, air, sea
     },
 }
 HouseGarages = {}

@@ -54,7 +54,7 @@ local function MenuGarage(type, garage, indexgarage)
 end
 
 local function ClearMenu()
-    TriggerEvent("qb-menu:closeMenu")
+	TriggerEvent("qb-menu:closeMenu")
 end
 
 local function closeMenuFull()
@@ -109,12 +109,12 @@ local function CreateZone(type, garage, index)
     garageZones[type .. "_" .. index] = {}
     garageZones[type .. "_" .. index].zone = BoxZone:Create(
         coords, size, size, {
-        minZ = minz,
-        maxZ = maxz,
-        name = type,
-        debugPoly = false,
-        heading = heading
-    })
+            minZ = minz,
+            maxZ = maxz,
+            name = type,
+            debugPoly = false,
+            heading = heading
+        })
 
     garageZones[type .. "_" .. index].zonecombo = ComboZone:Create({ garageZones[type .. "_" .. index].zone },
         { name = "box" .. type, debugPoly = false })
@@ -196,8 +196,8 @@ local function CreateZone(type, garage, index)
 end
 
 local function doCarDamage(currentVehicle, veh)
-    local engine = veh.engine + 0.0
-    local body = veh.body + 0.0
+	local engine = veh.engine + 0.0
+	local body = veh.body + 0.0
 
     Wait(100)
     if VisuallyDamageCars then
@@ -353,18 +353,18 @@ RegisterNetEvent('qb-garages:client:takeOutGarage', function(data)
             end
             QBCore.Functions.TriggerCallback('qb-garage:server:spawnvehicle', function(netId, properties)
                 local veh = NetToVeh(netId)
-                QBCore.Functions.SetVehicleProperties(veh, properties)
-                exports['LegacyFuel']:SetFuel(veh, vehicle.fuel)
-                doCarDamage(veh, vehicle)
-                TriggerServerEvent('qb-garage:server:updateVehicleState', 0, vehicle.plate, index)
-                closeMenuFull()
-                TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
-                SetVehicleEngineOn(veh, true, true)
-                if type == "house" then
-                    exports['qb-core']:DrawText(Lang:t("info.park_e"), 'left')
-                    InputOut = false
-                    InputIn = true
-                end
+                    QBCore.Functions.SetVehicleProperties(veh, properties)
+                    exports['ps-fuel']:SetFuel(veh, vehicle.fuel)
+                    doCarDamage(veh, vehicle)
+                    TriggerServerEvent('qb-garage:server:updateVehicleState', 0, vehicle.plate, index)
+                    closeMenuFull()
+                    TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
+                    SetVehicleEngineOn(veh, true, true)
+                    if type == "house" then
+                        exports['qb-core']:DrawText(Lang:t("info.park_e"), 'left')
+                        InputOut = false
+                        InputIn = true
+                    end
             end, vehicle, location, true)
         else
             QBCore.Functions.Notify(Lang:t("error.not_impound"), "error", 5000)
@@ -379,7 +379,7 @@ local function enterVehicle(veh, indexgarage, type, garage)
             if owned then
                 local bodyDamage = math.ceil(GetVehicleBodyHealth(veh))
                 local engineDamage = math.ceil(GetVehicleEngineHealth(veh))
-                local totalFuel = exports['LegacyFuel']:GetFuel(veh)
+                local totalFuel = exports['ps-fuel']:GetFuel(veh)
                 TriggerServerEvent('qb-garage:server:updateVehicle', 1, totalFuel, engineDamage, bodyDamage, plate, indexgarage, type, PlayerGang.name)
                 CheckPlayers(veh, garage)
                 if type == "house" then
@@ -387,7 +387,7 @@ local function enterVehicle(veh, indexgarage, type, garage)
                     InputOut = true
                     InputIn = false
                 end
-
+    
                 if plate then
                     TriggerServerEvent('qb-garages:server:UpdateOutsideVehicle', plate, nil)
                 end

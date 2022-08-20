@@ -98,15 +98,15 @@ QBCore.Functions.CreateCallback("qb-garage:server:checkOwnership", function(sour
             if result[1] then
                 local hasHouseKey = exports['qb-houses']:hasKey(result[1].license, result[1].citizenid, house)
                 if hasHouseKey then
-                    cb(true)
-                else
-                    cb(false)
-                end
+                cb(true)
+            else
+                cb(false)
+            end
             else
                 cb(false)
             end
         end)
-    elseif type == "gang" then        --Gang garages only for gang members cars (for sharing)
+        elseif type == "gang" then        --Gang garages only for gang members cars (for sharing)
         MySQL.query('SELECT * FROM player_vehicles WHERE plate = ?', {plate}, function(result)
             if result[1] then
                 --Check if found owner is part of the gang
